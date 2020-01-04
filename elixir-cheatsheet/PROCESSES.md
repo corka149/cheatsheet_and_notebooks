@@ -91,4 +91,6 @@ Built-in it is available in Elixir via [Agents](https://hexdocs.pm/elixir/Agent.
 
 ![Cheatsheet by Benjamin Tan Wei Hao - Part 1](./img/the_genserver_cheatsheet_byBenjaminTanWeiHao_p2.png)
 
+[See example - self built](./example_code/postcodes.ex)
+
 [Original source](https://github.com/benjamintanweihao/elixir-cheatsheets/)
