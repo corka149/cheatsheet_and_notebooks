@@ -70,7 +70,7 @@ Monitors:
  - For uni-directional
  - Process gets informed when monitored process exits or so
 
-[Monitoring example - self built](./example_code/postcodes.ex)
+[Monitoring example - self built](./example_code/monitoring.ex)
 
 Alternative Process.link/1 can also be used to create a link.
 
