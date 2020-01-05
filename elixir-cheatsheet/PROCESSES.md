@@ -53,9 +53,6 @@ Links:
 - Connects a parent process to its children
 - Bi-directional: When one of them exits the other will exit, too
 
-Monitors:
- - For uni-directional
- - Process gets informed when monitored process exits or so
 ```
 iex(1)> spawn_link fn -> raise "stop here" end
 ** (EXIT from #PID<0.103.0>) shell process exited with reason: an exception was raised:
@@ -68,6 +65,12 @@ iex(1)>
 ** (RuntimeError) stop here
     (stdlib) erl_eval.erl:678: :erl_eval.do_apply/6
 ```
+
+Monitors:
+ - For uni-directional
+ - Process gets informed when monitored process exits or so
+
+[Monitoring example - self built](./example_code/postcodes.ex)
 
 Alternative Process.link/1 can also be used to create a link.
 
