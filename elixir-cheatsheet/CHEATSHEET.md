@@ -569,6 +569,13 @@ iex(7)> for <<c <- bitstring>>, do: <<c - 32>>
 
 [GOTO](./DEBUGGING.md)
 
+## Macros - Metaprogramming with Elixir
+
+Elixir is built in its own struct and with macros.
+It is possible to extend the language via macros.
+
+[Macro examples](./example_code/macros.exs)
+
 ## Libraries provided by Erlang
 
 [Examples](https://elixir-lang.org/getting-started/erlang-libraries.html)
