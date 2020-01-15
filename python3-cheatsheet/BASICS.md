@@ -155,11 +155,15 @@ s = {"Mars"}
 s = set()                       # Empty set
 ```
 
-## Import modules and classes
+## Import packages and classes
 ```
 import sys
 from qtpy import QtWidgets as QT
 ```
+
+Where does python look for modules and packages?
+- `sys.path` from `sys`-package can be used from inside the code
+- `PYTHONPATH` environment variable can be modified before calling interpreter
 
 ## Lambda
 ```
@@ -185,8 +189,8 @@ def print_message(m):
 print_message("I am bread.")
 ```
 
-## Modules
-Files greeter.py and __ init __.py are in the same folder "my_module" (init without surrounded spaces)
+## Packages
+Files greeter.py and __ init __.py are in the same folder "my_package" (init without surrounded spaces)
 ```
 # greeter.py
 class ConsoleGreeter:
@@ -197,8 +201,8 @@ class ConsoleGreeter:
         print(self.__name + " says: "+ message)
 ##########################
 # __init__.py
-__all__ = ["greeter"]  # Allows 'from my_module impot*'
-from . import greeter  # Allows 'my_module.greeter.ConsoleGreeter
+__all__ = ["greeter"]  # Allows 'from my_package impot*'
+from . import greeter  # Allows 'my_package.greeter.ConsoleGreeter
 
 ```
 
