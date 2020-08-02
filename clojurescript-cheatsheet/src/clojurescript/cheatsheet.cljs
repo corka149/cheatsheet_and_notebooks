@@ -21,12 +21,22 @@ ok
 (list 5 4 3 2 1)
 
 ;; Vectors - very efficient index access to their elements
- [:a :b :c :d]
- (vector :d :c :b :a)
+[:a :b :c :d]
+(vector :d :c :b :a)
+(nth [0 1 2 3] 3)
+(vector? [1 2 3])
+(assoc ["eins" "zwei" "three"] 2 "drei") ;; => ["eins" "zwei" "drei"]
+(["eins" "zwei" "drei"] 2) ;; => "drei"
 
 ;; Maps
 {:name "Bob", :age 27}
 ({:name "Bob", :age 27} :name)
+(hash-map :name "Bob")
+(conj {:name "Alice"} [:age 27]) ;; => {:name "Alice", :age 27}
+(assoc {:age 27} :age 30) ;; => {:age 30}
+(dissoc {:age 27} :age) ;; => {}
+({:age 27} :age) ;; => 27
+(keys {:age 27}) ;; => (:age)
 
 ;; Sets - store zero or more unique items of any type and are unordered
 #{:x :y :z}
@@ -42,7 +52,7 @@ ok
    (* x y)) 5 6)
 
 ;; Let's assign it to a symbol
-(def halve (fn [x](/ x 2)))
+(def halve (fn [x] (/ x 2)))
 (halve 10)
 
 ;; Now with defn macro and doc string
@@ -70,7 +80,7 @@ ok
 (def div #(/ %1 %2))
 (div 10 5)
 
-(def pow #(* % % ))
+(def pow #(* % %))
 (pow 5)
 
 
