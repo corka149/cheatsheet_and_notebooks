@@ -40,6 +40,14 @@ ok
 
 ;; Sets - store zero or more unique items of any type and are unordered
 #{:x :y :z}
+(require '[clojure.set :as s])
+(s/difference #{1 2} #{2 3})
+(s/union #{1 2} #{2 3})
+(s/intersection #{1 2} #{2 3}) ;; => #{2}
+;; Use set as a set as a function
+;; Prints out every number from the second set
+;; thai is in the first set
+(run! println (filter #{1 2 3} #{1 3}))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -107,3 +115,13 @@ ok
     r ;; if f == 1 will break the loop
     (recur (* r 10) (- f 1))))
 ;; => 1000
+
+
+;; destructing
+(defn swap-and-forget-the-rest 
+  [[second first & _rest :as original]] {:new [first second] :source original})
+(swap-and-forget-the-rest [1 2 3 4]) ;; => {:new [2 1], :source [1 2 3 4]}
+;; With associative data
+(defn extract-name [{name :name}] (println name))
+(extract-name {:name "Alice" :age 33}) ;; => Alice
+
