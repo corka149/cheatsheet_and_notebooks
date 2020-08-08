@@ -118,10 +118,41 @@ ok
 
 
 ;; destructing
-(defn swap-and-forget-the-rest 
+(defn swap-and-forget-the-rest
   [[second first & _rest :as original]] {:new [first second] :source original})
 (swap-and-forget-the-rest [1 2 3 4]) ;; => {:new [2 1], :source [1 2 3 4]}
 ;; With associative data
 (defn extract-name [{name :name}] (println name))
 (extract-name {:name "Alice" :age 33}) ;; => Alice
+;; Alternative
+(defn extract-name [{:keys [name age]}]
+  [name age]) ;; :keys, :strs, :syms
+(extract-name {:name "Alice" :age 33}) ;; => ["Alice" 33]
 
+
+;; Threading marcros
+;; https://www.spacjer.com/blog/2015/11/09/lesser-known-clojure-variants-of-threading-macro/
+(defn power [x] (* x x)) ;; Just for example
+;; thread-first "->"
+(-> 2
+    power
+    power
+    power) ;; => 256
+;; thread-last "->>"
+(->> 2
+    (/ 50)
+    (/ 625)
+    (/ 50)) ;; => 2
+;; thread-as "as->"
+(as-> 2 $
+  (* $ $)
+  (/ 16 $)
+  (- $ 2)) ;; => 2
+;; thread-cond "cond->" or "cond->>"
+(defn foo [x]
+  (cond->> x
+    (pos? x) (/ 10)
+    (pos? x) (- 20)))
+(foo 2)  ;; => 15
+(foo -2) ;; => -2
+(foo 0)  ;; => 0
